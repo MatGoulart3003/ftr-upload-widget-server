@@ -30,7 +30,6 @@ export async function uploadImageRoute(app: FastifyInstance) {
         message: `File size must be a maximum of 4MB..`,
       })
     }
-
     await reply.status(201).send({ url })
   })
 }
