@@ -28,7 +28,7 @@
             - name: Generate tag
               id: generate-tag
               run: | 
-                SHA=$(echo $GITHUB_SHA | head -c1-7)
+                SHA=$(echo $GITHUB_SHA | head -c7)
                 echo "TAG=$SHA" >> $GITHUB_OUTPUT
 
             - name: Build and push image to Amazon ECR
