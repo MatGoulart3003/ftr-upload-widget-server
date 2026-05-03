@@ -1,4 +1,16 @@
 services:
+
+  db: 
+    image: postgres:17
+    container_name: widget-postgres-db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: widget_server_db
+    volumes:
+      - db:/var/lib/postgresql/data
   app: 
     build: .
     container_name: widget-server
@@ -10,3 +22,6 @@ services:
       - CLOUDFLARE_BUCKET=#
       - CLOUDFLARE_ACCOUNT_ID=#
       - CLOUDFLARE_PUBLIC_URL=https://teste.dev
+
+volumes:
+  db:
