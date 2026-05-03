@@ -13,6 +13,18 @@
               id: checkout
               uses: actions/checkout@v6
 
+            - name: Setup Node.js
+              id: setup-node
+              uses: actions/setup-node@v6
+              with:
+                node-version: 24
+
+            - name: Setup pnpm
+              id: setup-pnpm
+              uses: pnpm/action-setup@v6
+              with:
+                version: 10
+
             - name: Configure AWS Credentials
               id: configure-aws-credentials
               uses: aws-actions/configure-aws-credentials@v6.1.0
