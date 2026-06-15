@@ -88,8 +88,8 @@
               id: render-task-definition
               uses: aws-actions/amazon-ecs-render-task-definition@v1
               with: 
-                task-definition: .aws/task-definition.json
-                container-name: widget-server
+                task-definition: ${{ vars.ECS_TASK_DEFINITION }}
+                container-name: ${{ vars.ECS_CONTAINER_NAME }}
                 image: ${{ steps.login-ecr.outputs.registry }}/${{ vars.ECR_REPOSITORY }}:${{ steps.generate-tag.outputs.sha }}
                 
             - name: Deploy Amazon ECS Service
@@ -97,6 +97,6 @@
               uses: aws-actions/amazon-ecs-deploy-task-definition@v2
               with:
                 task-definition: ${{ steps.render-task-definition.outputs.task-definition }}
-                service: widget-server
-                cluster: rocketseat-ecs-pos-mateus
+                service: ${{ vars.ECS_SERVICE_NAME }}
+                cluster: ${{ vars.CLUSTER_NAME }}
                 wait-for-service-stability: true
