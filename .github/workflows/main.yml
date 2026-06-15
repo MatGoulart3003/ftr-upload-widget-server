@@ -98,5 +98,5 @@
               with:
                 task-definition: ${{ steps.render-task-definition.outputs.task-definition }}
                 service: ${{ vars.ECS_SERVICE_NAME }}
-                cluster: ${{ vars.CLUSTER_NAME }}
+                cluster: ${{ vars.ECS_CLUSTER_NAME }}
                 wait-for-service-stability: true
