@@ -35,3 +35,4 @@
               run: | 
                 docker build -t $DOCKER_HUB_REPOSITORY:$IMAGE_TAG .
                 docker push $DOCKER_HUB_REPOSITORY:$IMAGE_TAG
+        
